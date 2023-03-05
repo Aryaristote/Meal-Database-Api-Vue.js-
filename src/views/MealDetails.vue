@@ -55,7 +55,6 @@ import { useRoute } from "vue-router";
 import axiosClient from "../axiosClient";
 import YoutubeBouton from "../components/YoutubeBouton.vue"
 
-
 const route = useRoute();
 const meal = ref({})
 
