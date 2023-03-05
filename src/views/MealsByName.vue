@@ -8,21 +8,7 @@
     >
   </div>
   <div class="grid grid-cols-1 md:grid-cols-4 gap-5 p-8">
-    <div v-for="meal in meals" :key="meal.idMeal" class="bg-white shadow rounded-xl">
-      <router-link :to="{name:'mealDetails', params: {id: meal.idMeal}}">
-        <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded-t-xl h-48 w-full object-cover">
-      </router-link>
-      <div class="px-3">
-        <h3 class="py-2 font-bold">{{ meal.strMeal }}</h3>
-        <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ea adipisci, asperiores non ad vel</p>
-        <div class="py-5 flex items-center justify-between">
-          <YoutubeBouton :href="meal.strYoutube">Youtube</YoutubeBouton>
-          <router-link to="/" class="px-3 py-2 text-purple-700 font-semibold rounded border-2 border-purple-600 hover:bg-purple-600 hover:text-white">
-            View
-          </router-link> 
-        </div>
-      </div>
-    </div>
+    <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
   </div>
 </template>
 
@@ -30,7 +16,7 @@
 import { computed, onMounted, ref } from "vue";
 import store from "../store";
 import { useRoute } from "vue-router";
-import YoutubeBouton from "../components/YoutubeBouton.vue"
+import MealItem from "../components/MealItem.vue"
 
   const route = useRoute();
   const keyword = ref('');

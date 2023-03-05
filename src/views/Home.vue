@@ -2,7 +2,7 @@
     <div class="flex flex-col items-center justify-center p-8">
         <div class="flex justify-center gap-2 mt-2">
             <router-link :to="{name: 'byLetter', params: {letter}}" v-for="letter of letters" :key="letter">
-                {{ letter }}
+                <div class="m-2" style="margin-left: 10px;">{{ letter }}</div>
             </router-link>
         </div>
         <pre>{{ ingredients }}</pre>
@@ -19,7 +19,7 @@ const ingredients = ref([]);
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 onMounted(async () => {
     const response = await axiosClient.get('/list.php?i=list')
-    console.log(response.data)
+    // console.log(response.data)
     ingredients.value = response.data
 })
 </script>
