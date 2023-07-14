@@ -1,27 +1,27 @@
 <template>
     <div class="meal-details mx-auto p-8">
         <div class="left">
-          <h1 class="text-3xl font-bold mb-5">{{ meal.strMeal }}</h1>
+          <h1 class="text-2xl font-bold mb-5">{{ meal.strMeal }}</h1>
           <img :src="meal.strMealThumb" :alt="meal.strMeal" class="">
         </div>
-        <div class="right">
+        <div class="right" v-if="meal">
           <div class="grid grid-cols-1 sm:grid-cols-3 text-lg py-2">
             <div>
-                <strong>Category: </strong> {{ meal.strCategory }}
+                <strong>Category: </strong> <span>{{ meal.strCategory }}</span>
             </div>
             <div>
-                <strong>Area: </strong> {{ meal.strArea }}
+                <strong>Area: </strong> <span>{{ meal.strArea }}</span>
             </div>
             <div>
-                <strong>Tags: </strong> {{ meal.strTags }}
+                <strong>Tags: </strong> <span>{{ meal.strTags }}</span>
             </div>
           </div>
-          <div>
-            {{ meal.strInstructions }}
+          <div class="description">
+            <p>{{ meal.strInstructions }}</p>
           </div><br>
           <div class="grid grid-cols-1 sm:grid-cols-2">
               <div>
-                  <h2 class="text-2xl font-semibold md-2">Ingredients</h2>
+                  <h4 class="text-lg font-semibold md-2">Ingredients</h4>
                   <ul>
                       <!-- To get all ingredients list even empty ones  -->
                       <template v-for="(el, ind) of new Array(20)">
@@ -32,7 +32,7 @@
                   </ul>
               </div>
               <div>
-                  <h2 class="text-2xl font-semibold md-3">Measures</h2>
+                  <h4 class="text-lg font-semibold md-3">Measures</h4>
                   <ul>
                       <template v-for="(el, ind) of new Array(9)">
                           <li v-if="meal[`strMeasure${ind + 1}`]">
@@ -43,8 +43,8 @@
               </div>
           </div>
           <div class="my-5">
-              <YoutubeBouton :href="meal.strYoutube">Go To Youtube</YoutubeBouton>
-              <a class="ml-5 px-3 py-2 rounded border-2 font-semibold border-purple-500 bg-purple-500 hover:bg-purple-600 text-white transition-color" 
+              <YoutubeBouton class="ytb-btn" :href="meal.strYoutube">Go To Youtube</YoutubeBouton>
+              <a class="view-btn ml-5 px-3 py-2 rounded border-2 font-semibold border-purple-500 bg-purple-500 hover:bg-purple-600 text-white transition-color" 
                   :href="meal.strSource" target="_blank">
                   View Origin Source
               </a>
@@ -65,10 +65,10 @@ const meal = ref({})
 
 onMounted(() => {
     axiosClient.get(`lookup.php?i=${route.params.id}`)
-        .then(({ data }) => {
-            // debugger;
-            meal.value = data.meals[0] || {}
-        })
+    .then(({ data }) => {
+        // debugger;
+        meal.value = data.meals[0] || {}
+    })
 })
 </script>
 

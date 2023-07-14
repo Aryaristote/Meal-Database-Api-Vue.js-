@@ -13,7 +13,7 @@
               </a>
             <router-link :to="{name:'mealDetails', params: {id: meal.idMeal}}" class="px-3 py-2 text-purple-700 font-semibold rounded border-2 border-purple-600 hover:bg-purple-600 hover:text-white">
                 View
-            </router-link> 
+            </router-link>
             </div>
         </div>
     </div>

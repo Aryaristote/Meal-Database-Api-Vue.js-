@@ -6,6 +6,9 @@
 
 .navBar{
   background-color: #001220;
+  position: fixed;
+  top: 0;
+  width: 100%;
   color: white;
 }
 
@@ -28,6 +31,16 @@
   font-size: 50px
 }
 
+.search {
+  margin-top: 4em;
+}
+.byLetters {
+  margin-top: 3em;
+}
+.ingredient {
+  margin-top: 4em;
+}
+
 .search .search-centent input{
   border: 3px solid gray;
   border-radius: 15px;
@@ -42,6 +55,7 @@
 
 /* Meal Details   */
 .meal-details{
+  margin-top: 6em;
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -59,6 +73,138 @@
 
 .meal-details .right{
   width: 50%;
+}
+
+/* Meal by Letters  */
+.byLetters .byL-content .flex span{
+  /* border: 2px solid red; */
+  padding: 5px 10px;
+  background-color: #fbddca;
+  /* color: white; */
+  font-weight: bold;
+}
+
+.byLetters .byL-content .flex span:hover{
+  background-color: #dd6b20;
+  color: white;
+}
+
+/* Responsive  */
+@media (max-width: 767px) {
+  .navBar{
+    position: relative;
+  }
+  .navBar .container .inline-flex{
+    font-size: 11px;
+  }
+  .home .meal-centent{
+    width: 100%;
+  }
+  .home .meal-centent h1{
+    font-size: 25px;
+  }
+  .search{
+    margin-top: 0px;
+  }
+  .search .search-centent {
+    width: 90%;
+  }
+  .byLetters{
+    margin-top: 0;
+  }
+  .byLetters .byL-content{
+    width: 90%;
+  }
+  .byLetters .byL-content .flex .alphabet{
+    overflow: auto;
+  }
+  .byLetters .byL-content .flex .alphabet span{
+    padding: 2px 3px;
+  }
+  .byLetters .byL-content .flex .alphabet span:hover{
+    border-bottom: 2px solid #dd6b20;
+  }
+  .ingredient{
+    margin-top: 0px;
+  }
+  .ingredient .ingrd-content{
+    width: 90%;
+  }
+  .ingredient .ingrd-content h1{
+    font-size: 25px;
+  }
+  .ingredient .ingrd-content .block h3{
+    font-size: 18px;
+  }
+  .ingredient .ingrd-content .block p{
+    font-size: 13px;
+  }
+  .meal-details{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  .meal-details .left{
+    width: 100%;
+  }
+  .meal-details .left h1{
+    font-size: 25px;
+  }
+  .meal-details .right{
+    width: 100%;
+    border-top: 2px solid rgb(172, 169, 169);
+  }
+  .meal-details .right .grid strong{
+    font-size: 16px;
+  }
+  .meal-details .right .grid span{
+    font-size: 14px;
+  }
+  .meal-details .right .description p{
+    font-size: 14px;
+  }
+  .meal-details .right .grid div h2{
+    font-size: 16px;
+  }
+  .meal-details .right .grid div ul li{
+    font-size: 14px;
+  }
+  .meal-details .right .my-5{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .meal-details .right .my-5 .ytb-btn, .view-btn{
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .meal-details{
+    margin-top: 6em;
+  }
+  .meal-details .right .my-5 .ytb-btn, .view-btn{
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .meal-details{
+    margin-top: 6em;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .meal-details{
+    margin-top: 6em!important;
+  }
+}
+@media (min-width: 1440px) {
+  .meal-details{
+    margin-top: 6em!important;
+  }
 }
 
 @tailwind base;

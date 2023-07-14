@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center justify-center">
+    <div class="home flex flex-col items-center justify-center">
         <div class="welcome-area" id="welcome">
           <div class="header-text">
               <div class="container">
@@ -14,7 +14,7 @@
               </div>
           </div>
         </div>
-        <div class="w-[80%] p-8">
+        <div class="meal-centent w-[80%] p-8">
             <h1 class="text-4xl font-bold mb-2 text-orange-600">Meals Database</h1>
             <div v-if="meals" class="grid grid-cols-1 md:grid-cols-3 gap-5 py-8">
                 <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
