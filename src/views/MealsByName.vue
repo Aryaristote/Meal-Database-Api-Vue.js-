@@ -1,16 +1,14 @@
 <template>
-  <div class="flex justify-center">
-    <div class="w-[80%] py-8 pb-0">
+  <div class="search flex justify-center">
+    <div class="search-centent w-[80%] py-8 pb-0">
       <input type="text" 
         v-model="keyword" 
         placeholder="Search for meal" 
-        class="w-full rounded border-gray-300 border-2 center"
-        @change="searchMeals"
-      >
+        class="w-full center" @change="searchMeals">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 py-8">
         <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
       </div>
-      <div class="flex justify-center text-gray-600 p-8" v-if="!meals.length">There is no Meal</div>
+      <div class="flex justify-center text-gray-600 p-8" v-if="!meals.length">There is no Meal ...</div>
     </div>
   </div>
 </template>
